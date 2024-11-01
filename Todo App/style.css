@@ -1,0 +1,182 @@
+* {
+  /* Reset default margin and padding */
+  margin: 0;
+  padding: 0;
+
+  /* Set a system font stack for better performance and consistency */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  /* Set box-sizing to border-box for easier sizing */
+  box-sizing: border-box;
+}
+
+/* Set a gradient background for the entire html */
+html {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #bf187f, #d70528);
+}
+
+/* Main container for the todo app */
+.todo-app {
+  /* Sizing */
+  width: 100%;
+  max-width: 540px;
+  margin: 100px auto; /* Center the container vertically and horizontally */
+  padding: 40px 30px 70px; /* Padding around the content */
+
+  /* Positioning */
+  border-radius: 10px; /* Rounded corners */
+
+  /* Colouring */
+  background: #fff; /* White background for the todo app */
+}
+
+/* Heading style for the todo app */
+.todo-app h2 {
+  /* Colouring */
+  color: #002765; /* Dark blue color for the heading */
+
+  /* Positioning */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Image within the heading */
+.todo-app h2 img {
+  /* Sizing */
+  width: 30px; /* Set width for the image */
+
+  /* Positioning */
+  margin-left: 10px; /* Space between the text and the image */
+}
+
+/* Row style for each todo item */
+.row {
+  /* Positioning */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between items */
+
+  /* Colouring */
+  background: #e5e9e9; /* Light gray background for the row */
+
+  /* Sizing */
+  border-radius: 30px; /* Rounded corners */
+  padding-left: 20px; /* Padding on the left */
+  margin-bottom: 25px; /* Space below each row */
+}
+
+/* Input field style */
+input {
+  /* Positioning */
+  flex: 1; /* Allow input to grow and fill space */
+
+  /* Colouring */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  background: transparent; /* Transparent background */
+
+  /* Sizing */
+  padding: 10px; /* Padding inside the input */
+  font-weight: 14px; /* Font weight for the text */
+}
+
+/* Button style */
+button {
+  /* Colouring */
+  border: none; /* Remove border */
+  border-radius: 40px; /* Rounded corners */
+  background-color: #ff7a06; /* Orange background for the button */
+  color: #fff; /* White text color */
+
+  /* Sizing */
+  padding: 16px 50px; /* Padding around the button */
+
+  /* Font styling */
+  font-size: 16px; /* Font size for the button text */
+
+  /* Positioning */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+button:hover {
+  background-color: #d70528;
+}
+
+/* Style for list items */
+ul li {
+  /* Positioning */
+  list-style: none; /* Remove default list styling */
+  font-size: 17px; /* Font size for list item text */
+  padding: 12px 8px 12px 50px; /* Padding around the list item */
+  user-select: none; /* Prevent text selection */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  position: relative; /* Positioning for pseudo-element */
+}
+
+/* Pseudo-element for unchecked items */
+ul li::before {
+  content: ""; /* Required for pseudo-elements */
+
+  /* Sizing */
+  position: absolute; /* Absolute positioning */
+  height: 28px; /* Height of the checkbox */
+  width: 28px; /* Width of the checkbox */
+
+  /* Colouring */
+  border-radius: 50%; /* Make it circular */
+  background-image: url(images/unchecked.jpg); /* Background image for unchecked state */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+
+  /* Positioning */
+  top: 12px; /* Vertical positioning */
+  left: 8px; /* Horizontal positioning */
+}
+
+/* Style for checked list items */
+ul li.checked {
+  /* Colouring */
+  color: #555; /* Dark gray color for checked items */
+  text-decoration: line-through; /* Strikethrough for completed tasks */
+}
+
+/* Pseudo-element for checked items */
+ul li.checked::before {
+  /* Colouring */
+  background-image: url(images/checked.jpg); /* Background image for checked state */
+}
+
+/* Style for the span inside list items */
+ul li span {
+  /* Positioning */
+  position: absolute; /* Positioning the span absolutely within the list item */
+  right: 0; /* Align to the right */
+  top: 5px; /* Position 5 pixels from the top */
+
+  /* Sizing */
+  width: 40px; /* Width of the span */
+  height: 40px; /* Height of the span */
+
+  /* Font styling */
+  font-size: 22px; /* Font size for the text inside the span */
+
+  /* Colouring */
+  color: #555; /* Dark gray color for the text */
+
+  /* Text alignment */
+  line-height: 35px; /* Line height for vertical alignment */
+  text-align: center; /* Center the text horizontally */
+}
+
+/* Style for the span on hover */
+ul li span:hover {
+  /* Colouring */
+  background: #cdcdcd; /* Light gray background on hover */
+
+  /* Positioning */
+  border-radius: 50%; /* Make the background circular */
+}
