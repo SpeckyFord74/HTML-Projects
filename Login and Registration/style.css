@@ -1,0 +1,331 @@
+/* Import Google Fonts for typography */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spectral:wght@700&display=swap");
+
+/* Global styles: Resets margin, padding, and box-sizing, and sets base font family */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "sans-serif"; /* Default font for the page */
+}
+
+/* Body layout and background styling */
+body {
+  display: flex; /* Centers content using flexbox */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures body takes up full height of the viewport */
+
+  background: url("background.jpg") no-repeat center center; /* Sets background image */
+  background-size: cover; /* Ensures background covers entire body */
+}
+
+/* Header styling: Fixed positioning at the top of the page with space between logo and navigation */
+header {
+  position: fixed; /* Keeps the header fixed at the top */
+  top: 0;
+  left: 0;
+
+  width: 100%; /* Full width header */
+
+  padding: 20px 100px; /* Padding for spacing */
+
+  display: flex; /* Flexbox for alignment */
+  justify-content: space-between; /* Spaces out logo and navigation links */
+  align-items: center; /* Centers items vertically */
+  z-index: 99; /* Keeps header on top of other elements */
+}
+
+/* Logo styling */
+.logo {
+  font-size: 2rem; /* Larger font size for the logo */
+
+  color: #fff; /* White color for the logo text */
+
+  user-select: none; /* Prevents selection of the logo text */
+}
+
+/* Navigation links styling */
+.navigation a {
+  position: relative; /* Allows pseudo-elements for underline effect */
+
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #fff; /* White color for navigation links */
+
+  text-decoration: none; /* Removes default underline */
+
+  margin-left: 40px; /* Adds spacing between links */
+}
+
+/* Underline animation for navigation links on hover */
+.navigation a::after {
+  content: ""; /* Creates an invisible element for the underline */
+
+  position: absolute;
+  left: 0;
+  bottom: -6px; /* Positions the underline below the link */
+
+  width: 100%; /* Underline spans the full width of the link */
+  height: 3px; /* Height of the underline */
+
+  background: #fff; /* White underline */
+
+  border-radius: 2px; /* Rounded corners for the underline */
+
+  transform-origin: right; /* Starts the animation from the right */
+  transform: scaleX(0); /* Initially hides the underline */
+  transition: transform 0.5s; /* Smoothly animates the underline */
+}
+
+/* Hover effect for navigation links: Expands the underline */
+.navigation a:hover::after {
+  transform-origin: left; /* Underline expands from left */
+  transform: scaleX(1); /* Expands underline to full width */
+}
+
+/* Login button styling in the navigation */
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+
+  background: transparent;
+
+  border: 2px solid #fff; /* White border for the button */
+  border-radius: 6px;
+
+  outline: none;
+
+  cursor: pointer; /* Pointer cursor on hover */
+
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #fff;
+
+  margin-left: 40px;
+
+  transition: 0.5s; /* Smooth transition effect */
+}
+
+/* Hover effect for the login button */
+.navigation .btnLogin-popup:hover {
+  background: #fff; /* White background on hover */
+  color: #162938; /* Dark color for text on hover */
+}
+
+/* Wrapper container for the login form with background blur effect */
+.wrapper {
+  position: relative;
+
+  width: 430px;
+  height: 440px;
+
+  background: transparent;
+  backdrop-filter: blur(20px); /* Blurs the background */
+
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Adds shadow to the wrapper */
+
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Light border with some transparency */
+  border-radius: 20px; /* Rounded corners */
+
+  display: flex; /* Flexbox for centering form inside */
+  justify-content: center;
+  align-items: center;
+
+  transform: scale(0);
+  transition: transform 0.5s ease, height 0.2s ease;
+
+  overflow: hidden; /* Prevents overflow of inner elements */
+}
+
+.wrapper.active {
+  height: 520px;
+}
+
+.wrapper.active-popup {
+  transform: scale(1);
+}
+
+/* Form container styling */
+.wrapper .form-box {
+  width: 100%;
+  padding: 25px; /* Padding inside the form */
+}
+
+.wrapper .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+  transition: transform 0.18s ease;
+  transform: translateX(-500px);
+}
+
+.wrapper .form-box.register {
+  position: absolute;
+  transition: transform 0.18s ease;
+  transform: translateX(500px);
+}
+
+.wrapper.active .form-box.register {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+/* Close button for the wrapper (top-right corner) */
+.wrapper .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 45px;
+  height: 45px;
+
+  background: #162938; /* Dark background for the close button */
+
+  font-size: 2em; /* Larger icon */
+  color: #fff; /* White color for the icon */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Title styling for the form */
+.form-box h2 {
+  font-size: 2em;
+  text-align: center; /* Centers the title */
+}
+
+/* Input box container styling */
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+
+  border-bottom: 2px solid #162938; /* Bottom border for input */
+  margin: 30px 0; /* Spacing between inputs */
+}
+
+/* Label styling inside the input box */
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+
+  transform: translateY(-50%); /* Vertically centers label */
+
+  font-size: 1em;
+  font-weight: 500;
+
+  pointer-events: none; /* Disables interaction with the label */
+
+  transition: 0.3s; /* Smooth transition for label movement */
+}
+
+/* Label transition when input is focused or valid */
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px; /* Moves label above input */
+  font-size: 0.8em; /* Reduces font size of the label */
+}
+
+/* Input field styling */
+.input-box input {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 35px 0 5px; /* Padding inside input */
+
+  background: transparent;
+
+  border: none; /* Removes default border */
+  outline: none; /* Removes outline */
+
+  font-size: 1em;
+  font-weight: 600;
+  color: #162938; /* Dark color for text */
+}
+
+/* Icon inside input (e.g., for clear button) */
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+
+  font-size: 1.2em;
+  line-height: 57px; /* Vertically centers the icon */
+}
+
+/* Remember and forgot password section styling */
+.remember-forgot {
+  font-size: 0.9em;
+  font-weight: 500;
+
+  margin: -15px 0 15px 0;
+
+  display: flex;
+  justify-content: space-between; /* Space between remember me checkbox and forgot password link */
+}
+
+/* Remember me label styling */
+.remember-forgot label {
+  font-weight: 400;
+  color: #162938; /* Dark text color */
+}
+
+/* Custom checkbox color for remember me */
+.remember-forgot label input {
+  accent-color: #162938; /* Sets the checkbox color */
+  margin-right: 5px; /* Space between checkbox and label */
+}
+
+/* Forgot password link styling */
+.remember-forgot a {
+  color: #162920;
+  text-decoration: none; /* Removes underline */
+}
+
+/* Hover effect for forgot password link */
+.remember-forgot a:hover {
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+/* Login/Submit button styling */
+.btn {
+  width: 100%;
+  height: 45px;
+
+  background: #162938; /* Dark background for button */
+
+  border: none;
+  outline: none;
+  border-radius: 6px; /* Rounded corners */
+
+  cursor: pointer;
+
+  color: #fff; /* White text */
+  font-size: 1em;
+  font-weight: 500;
+}
+
+/* Login/register footer text styling */
+.login-register {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #162938;
+  text-align: center;
+
+  margin: 25px 0 10px;
+}
+
+/* Link inside login/register footer text */
+.login-register p a {
+  color: #162920;
+  text-decoration: none;
+  font-weight: 600;
+}
